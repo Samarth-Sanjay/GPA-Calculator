@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GPA_Calculator
@@ -22,6 +16,7 @@ namespace GPA_Calculator
         {
             MessageBox.Show(errorMessage, "Entry Error");
         }
+
         public bool isValid()
         {
             var firstName = textBoxFirstName.Text;
@@ -30,52 +25,58 @@ namespace GPA_Calculator
             var uNumberTextBox2 = textBoxUnum2.Text;
 
             //decimal checkDecimal = 0m;
-            if (String.IsNullOrWhiteSpace(firstName))
+            if (string.IsNullOrWhiteSpace(firstName))
             {
                 displayErrorBox("First Name is a required field.");
                 return false;
             }
-            else if (!Char.IsLetter(firstName.First()))
+
+            if (!char.IsLetter(firstName.First()))
             {
                 displayErrorBox("First Name must contain only letters");
                 return false;
             }
-            if (String.IsNullOrWhiteSpace(lastName))
+
+            if (string.IsNullOrWhiteSpace(lastName))
             {
                 displayErrorBox("Last Name is a required field.");
                 return false;
             }
-            else if (!Char.IsLetter(lastName.First()))
+
+            if (!char.IsLetter(lastName.First()))
             {
                 displayErrorBox("Last Name must contain only letters");
                 return false;
             }
-            else if (String.IsNullOrWhiteSpace(uNumberTextBox1))
+
+            if (string.IsNullOrWhiteSpace(uNumberTextBox1))
             {
                 displayErrorBox("First half of U-number is a required field.");
                 return false;
             }
-            else if (uNumberTextBox1.Length != 4)
+
+            if (uNumberTextBox1.Length != 4)
             {
                 displayErrorBox("First half of U-Number must contain 4 digits");
                 return false;
             }
-            else if (String.IsNullOrWhiteSpace(uNumberTextBox2))
+
+            if (string.IsNullOrWhiteSpace(uNumberTextBox2))
             {
                 displayErrorBox("Second half of U-number is a required field.");
                 return false;
             }
 
 
-
-            else if (uNumberTextBox2.Length != 4)
+            if (uNumberTextBox2.Length != 4)
             {
                 displayErrorBox("Second half of U-Number must contain 4 digits");
                 return false;
             }
-            return true;
 
+            return true;
         }
+
         private void buttonSignIn_Click(object sender, EventArgs e)
         {
             var firstName = textBoxFirstName.Text.Trim();
@@ -84,13 +85,11 @@ namespace GPA_Calculator
             var unum2 = textBoxUnum2.Text.Trim();
             if (isValid())
             {
-                Form2 dataEntry = new Form2();
-                this.Hide();
+                var dataEntry = new Form2();
+                Hide();
                 dataEntry.Text = $"Hello {firstName} {lastName} (U{unumber}-{unum2})";
                 dataEntry.ShowDialog();
-
             }
-        
         }
     }
 }

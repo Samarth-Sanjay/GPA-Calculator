@@ -132,7 +132,7 @@
             this.labelFirstName.TabIndex = 10;
             this.labelFirstName.Text = "First Name:";
             // 
-            // Form1
+            // SignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -147,8 +147,8 @@
             this.Controls.Add(this.labelUNumber);
             this.Controls.Add(this.labelLastName);
             this.Controls.Add(this.labelFirstName);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "SignIn";
+            this.Text = "SignIn";
             this.ResumeLayout(false);
             this.PerformLayout();
 
